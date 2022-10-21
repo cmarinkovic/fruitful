@@ -86,15 +86,15 @@ export default function Navbar() {
     },
     {
       label: "Commodities",
-      path: "commodities",
+      path: "/commodities",
     },
     {
       label: "Growers",
-      path: "growers",
+      path: "/growers",
     },
     {
       label: "Clients",
-      path: "clients",
+      path: "/clients",
     },
     {
       label: "Harvests",
