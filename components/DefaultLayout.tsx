@@ -9,7 +9,7 @@ export default function DefaultLayout({ children }: Props) {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main className="container">{children}</main>
     </>
   );
 }
