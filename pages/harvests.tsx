@@ -47,7 +47,7 @@ const Harvests: NextPage = () => {
       <div className="container">
         <Button onClick={openModal}>Add</Button>
 
-        {exampleState.isExample && errorMessage && (
+        {!exampleState.isExample && errorMessage && (
           <Alert alertType="error" message={errorMessage} />
         )}
 
