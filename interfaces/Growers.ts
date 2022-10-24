@@ -1,11 +1,18 @@
 export interface Growers {
-  name:     string;
+  growers: Grower[];
+  count: number;
+}
+
+export interface Grower {
+  id: string;
+  name: string;
   lastName: string;
-  email:    string;
-  farms:    Farm[];
+  email: string;
+  farms: Farm[];
 }
 
 export interface Farm {
-  name:    string;
+  id: string;
+  name: string;
   address: string;
 }

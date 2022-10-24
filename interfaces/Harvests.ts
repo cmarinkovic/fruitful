@@ -1,32 +1,32 @@
 export interface Harvests {
   harvests: Harvest[];
-  count:    number;
+  count: number;
 }
 
 export interface Harvest {
-  id:        string;
-  grower:    Client;
-  farm:      Farm;
-  client:    Client;
+  id: string;
+  grower: Client;
+  farm: Farm;
+  client: Client;
   commodity: Commodity;
-  variety:   Commodity;
+  variety: Commodity;
   createdAt: string;
 }
 
 export interface Client {
-  id:       string;
-  name:     string;
+  id: string;
+  name: string;
   lastName: string;
-  email:    string;
+  email: string;
 }
 
 export interface Commodity {
-  id:   string;
+  id: string;
   name: string;
 }
 
 export interface Farm {
-  id:      string;
-  name:    string;
+  id: string;
+  name: string;
   address: string;
 }

@@ -1,11 +1,11 @@
 export interface Clients {
   clients: Client[];
-  count:   number;
+  count: number;
 }
 
 export interface Client {
-  id:       string;
-  name:     string;
+  id: string;
+  name: string;
   lastName: string;
-  email:    string;
+  email: string;
 }

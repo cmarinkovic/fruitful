@@ -1,15 +1,15 @@
 export interface Commodities {
   commodities: Commodity[];
-  count:       number;
+  count: number;
 }
 
 export interface Commodity {
-  id:        string;
-  name:      string;
+  id: string;
+  name: string;
   varieties: Variety[];
 }
 
 export interface Variety {
-  id:   string;
+  id: string;
   name: string;
 }
