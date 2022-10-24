@@ -1,15 +1,14 @@
-import React from "react";
 import Navbar from "./Navbar";
 
-interface Props {
-  children?: React.ReactNode;
+interface DefaultLayoutProps {
+  children: React.ReactNode;
 }
 
-export default function DefaultLayout({ children }: Props) {
+export default function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <>
       <Navbar />
-      <main className="container">{children}</main>
+      <main className="container mx-8">{children}</main>
     </>
   );
 }
