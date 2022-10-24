@@ -1,12 +1,21 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
+
+import { ModalsProvider } from "../contexts/ModalsContext";
+import { ExampleProvider } from "../contexts/ExampleContext";
+
 import DefaultLayout from "../components/DefaultLayout";
+
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <DefaultLayout>
-      <Component {...pageProps} />
-    </DefaultLayout>
+    <ExampleProvider>
+      <ModalsProvider>
+        <DefaultLayout>
+          <Component {...pageProps} />
+        </DefaultLayout>
+      </ModalsProvider>
+    </ExampleProvider>
   );
 }
 
