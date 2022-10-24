@@ -28,3 +28,7 @@ a {
     background: black;
   }
 }
+
+.rotated {
+  transform: rotate(90deg);
+}
