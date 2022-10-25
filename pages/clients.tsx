@@ -14,7 +14,7 @@ import * as example from "../utils/exampleData";
 
 import { Clients } from "../interfaces/Clients";
 
-const Clients: NextPage = () => {
+function Clients() {
   const { data, errorMessage, isLoading, makeRequest } = useAxios<Clients, any>(
     "/clients",
     "get"
@@ -51,6 +51,6 @@ const Clients: NextPage = () => {
       )}
     </div>
   );
-};
+}
 
 export default Clients;

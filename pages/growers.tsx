@@ -14,7 +14,7 @@ import * as example from "../utils/exampleData";
 
 import { Growers } from "../interfaces/Growers";
 
-const Growers: NextPage = () => {
+function Growers() {
   const { data, errorMessage, isLoading, makeRequest } = useAxios<Growers, any>(
     "/growers",
     "get"
@@ -51,6 +51,6 @@ const Growers: NextPage = () => {
       )}
     </div>
   );
-};
+}
 
 export default Growers;

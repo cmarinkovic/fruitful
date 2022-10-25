@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import Hero from "../components/Hero";
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <div className="container mx-8">
       <Head>
@@ -12,6 +12,4 @@ const Home: NextPage = () => {
       <Hero />
     </div>
   );
-};
-
-export default Home;
+}

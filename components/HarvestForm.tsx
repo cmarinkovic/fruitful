@@ -13,7 +13,7 @@ import useAxios from "../hooks/useAxios";
 import * as example from "../utils/exampleData";
 
 import Button, { ButtonProps } from "./Button";
-import { Options } from "./Options";
+import Options from "./Options";
 
 import { Growers } from "../interfaces/Growers";
 import { Clients } from "../interfaces/Clients";
@@ -32,7 +32,7 @@ interface Values {
   varietyId: string;
 }
 
-export function HarvestForm() {
+export default function HarvestForm() {
   /* ------------------------------- Data { data, errorMessage, isLoading, payload, setPayload, makeRequest } ------------------------------- */
   const [exampleState] = useContext(ExampleContext);
 

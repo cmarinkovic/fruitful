@@ -10,7 +10,7 @@ import Spinner from "../components/Spinner";
 import Alert from "../components/Alert";
 import Button from "../components/Button";
 import AddModal from "../components/AddModal";
-import { HarvestForm } from "../components/HarvestForm";
+import HarvestForm from "../components/HarvestForm";
 
 import useAxios from "../hooks/useAxios";
 import * as example from "../utils/exampleData";
@@ -18,11 +18,11 @@ import * as example from "../utils/exampleData";
 import { Harvests } from "../interfaces/Harvests";
 import Head from "next/head";
 
-const Harvests: NextPage = () => {
-  const { data, errorMessage, isLoading, makeRequest } = useAxios<Harvests, any>(
-    "/harvests",
-    "get"
-  );
+function Harvests() {
+  const { data, errorMessage, isLoading, makeRequest } = useAxios<
+    Harvests,
+    any
+  >("/harvests", "get");
 
   const [modalsState, setModalsState] = useContext(ModalsContext);
   const [exampleState] = useContext(ExampleContext);
@@ -72,6 +72,6 @@ const Harvests: NextPage = () => {
       )}
     </div>
   );
-};
+}
 
 export default Harvests;

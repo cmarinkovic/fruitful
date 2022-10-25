@@ -7,7 +7,7 @@ import DefaultLayout from "../components/DefaultLayout";
 
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ExampleProvider>
       <ModalsProvider>
@@ -18,5 +18,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ExampleProvider>
   );
 }
-
-export default MyApp;

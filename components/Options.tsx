@@ -13,7 +13,7 @@ interface OptionsProps {
   clientsData: Clients | undefined;
 }
 
-export function Options({
+export default function Options({
   name,
   growerId,
   commodityId,

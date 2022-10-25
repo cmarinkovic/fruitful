@@ -13,11 +13,11 @@ import * as example from "../utils/exampleData";
 import { Commodities } from "../interfaces/Commodities";
 import { ExampleContext } from "../contexts/ExampleContext";
 
-const Commodities: NextPage = () => {
-  const { data, errorMessage, isLoading, makeRequest } = useAxios<Commodities, any>(
-    "/commodities",
-    "get"
-  );
+function Commodities() {
+  const { data, errorMessage, isLoading, makeRequest } = useAxios<
+    Commodities,
+    any
+  >("/commodities", "get");
 
   const [exampleState] = useContext(ExampleContext);
 
@@ -53,6 +53,6 @@ const Commodities: NextPage = () => {
       )}
     </div>
   );
-};
+}
 
 export default Commodities;
