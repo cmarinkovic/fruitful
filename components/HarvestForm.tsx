@@ -40,19 +40,19 @@ export function HarvestForm() {
     data: growersData,
     errorMessage: growersErrorMessage,
     makeRequest: getGrowers,
-  } = useAxios<Growers>("/growers", "get");
+  } = useAxios<Growers, any>("/growers", "get");
 
   const {
     data: clientsData,
     errorMessage: clientsErrorMessage,
     makeRequest: getClients,
-  } = useAxios<Clients>("/clients", "get");
+  } = useAxios<Clients, any>("/clients", "get");
 
   const {
     data: commoditiesData,
     errorMessage: commoditiesErrorMessage,
     makeRequest: getCommodities,
-  } = useAxios<Commodities>("/commodities", "get");
+  } = useAxios<Commodities, any>("/commodities", "get");
 
   const {
     data: postResponse,
@@ -60,7 +60,7 @@ export function HarvestForm() {
     makeRequest: postHarvest,
     isLoading: isPostLoading,
     setPayload,
-  } = useAxios<any>("/harvests", "post");
+  } = useAxios<any, Values>("/harvests", "post");
 
   useEffect(() => {
     if (exampleState.isExample) return;

@@ -8,14 +8,14 @@ interface UseAxios {
   makeRequest: () => void;
 }
 
-export default function useAxios<DataType>(
+export default function useAxios<DataType, Payload>(
   endpoint: string,
   method: string
 ): UseAxios & { data: DataType | undefined } {
   const [data, setData] = useState<DataType>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [payload, setPayload] = useState<any>();
+  const [payload, setPayload] = useState<Payload>();
 
   const makeRequest = () => {
     setErrorMessage("");
