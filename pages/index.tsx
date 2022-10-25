@@ -5,9 +5,9 @@ import Hero from "../components/Hero";
 
 const Home: NextPage = () => {
   return (
-    <div className="container">
+    <div className="container mx-8">
       <Head>
-        <title>Fruitful</title>
+        <title>Fruitful - Home</title>
       </Head>
       <Hero />
     </div>

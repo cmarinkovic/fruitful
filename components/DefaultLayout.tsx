@@ -6,9 +6,9 @@ interface DefaultLayoutProps {
 
 export default function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
-    <>
+    <div className="container">
       <Navbar />
       <main className="container mx-8">{children}</main>
-    </>
+    </div>
   );
 }
