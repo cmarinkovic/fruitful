@@ -15,7 +15,7 @@ import * as example from "../utils/exampleData";
 import { Growers } from "../interfaces/Growers";
 
 const Growers: NextPage = () => {
-  const { data, errorMessage, isLoading, makeRequest } = useAxios<Growers>(
+  const { data, errorMessage, isLoading, makeRequest } = useAxios<Growers, any>(
     "/growers",
     "get"
   );

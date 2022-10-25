@@ -14,7 +14,7 @@ import { Commodities } from "../interfaces/Commodities";
 import { ExampleContext } from "../contexts/ExampleContext";
 
 const Commodities: NextPage = () => {
-  const { data, errorMessage, isLoading, makeRequest } = useAxios<Commodities>(
+  const { data, errorMessage, isLoading, makeRequest } = useAxios<Commodities, any>(
     "/commodities",
     "get"
   );

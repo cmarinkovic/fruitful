@@ -19,7 +19,7 @@ import { Harvests } from "../interfaces/Harvests";
 import Head from "next/head";
 
 const Harvests: NextPage = () => {
-  const { data, errorMessage, isLoading, makeRequest } = useAxios<Harvests>(
+  const { data, errorMessage, isLoading, makeRequest } = useAxios<Harvests, any>(
     "/harvests",
     "get"
   );
