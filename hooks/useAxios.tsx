@@ -1,11 +1,10 @@
-import { Dispatch, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 interface UseAxios {
   errorMessage: string | undefined;
   isLoading: boolean;
-  setPayload: Dispatch<any>;
-  makeRequest: () => void;
+  makeRequest: (payload?: string) => void;
 }
 
 export default function useAxios<DataType, Payload>(
@@ -15,19 +14,19 @@ export default function useAxios<DataType, Payload>(
   const [data, setData] = useState<DataType>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [payload, setPayload] = useState<Payload>();
 
-  const makeRequest = () => {
+  const makeRequest = (payload?: string) => {
     setErrorMessage("");
     setIsLoading(true);
 
     axios
       .request<DataType>({
-        url: endpoint,
         baseURL: process.env.BASE_URL,
+        url: endpoint,
         method: method,
-        withCredentials: false,
-        responseType: "json",
+        headers: {
+          "Content-Type": "application/json",
+        },
         data: payload,
       })
       .then((response) => {
@@ -41,5 +40,5 @@ export default function useAxios<DataType, Payload>(
       .finally(() => setIsLoading(false));
   };
 
-  return { data, errorMessage, isLoading, setPayload, makeRequest };
+  return { data, errorMessage, isLoading, makeRequest };
 }

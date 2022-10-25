@@ -59,7 +59,6 @@ export function HarvestForm() {
     errorMessage: postErrorMessage,
     makeRequest: postHarvest,
     isLoading: isPostLoading,
-    setPayload,
   } = useAxios<any, Values>("/harvests", "post");
 
   useEffect(() => {
@@ -73,8 +72,7 @@ export function HarvestForm() {
   const handleSubmit = (values: Values, actions: FormikHelpers<Values>) => {
     if (exampleState.isExample) return;
 
-    setPayload(values);
-    postHarvest();
+    postHarvest(JSON.stringify(values));
 
     if (!postErrorMessage) actions.resetForm();
   };
