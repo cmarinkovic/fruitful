@@ -2,7 +2,12 @@ import React, { PropsWithChildren } from "react";
 
 import Accordion from "./Accordion";
 
-// TODO: Refactor to decrease complexity
+interface PropertyItemProps {
+  item: any;
+  itemKey: string;
+  key: string;
+}
+
 export default function DataTable({ data }: any) {
   const TableHead = () => {
     const TableHeader = ({ children }: PropsWithChildren) => {
@@ -17,8 +22,8 @@ export default function DataTable({ data }: any) {
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
           {data[0] &&
-            Object.keys(data[0]).map((key) => (
-              <TableHeader key={key}>{key}</TableHeader>
+            Object.keys(data[0]).map((headerKey) => (
+              <TableHeader key={headerKey}>{headerKey}</TableHeader>
             ))}
         </tr>
       </thead>
@@ -30,8 +35,18 @@ export default function DataTable({ data }: any) {
       return <tr className="bg-white border-b ">{children}</tr>;
     };
 
-    const ItemProperty = ({ children }: PropsWithChildren) => {
-      return <td className="py-4 px-6">{children}</td>;
+    const PropertyItem = ({ item, itemKey: key }: PropertyItemProps) => {
+      return (
+        <td className="py-4 px-6">
+          {"object" === typeof item[key] && (
+            <Accordion items={[item[key]].flat()}>
+              <DataTable data={[item[key]].flat()} />
+            </Accordion>
+          )}
+
+          {"string" === typeof item[key] && item[key]}
+        </td>
+      );
     };
 
     return (
@@ -40,15 +55,11 @@ export default function DataTable({ data }: any) {
           return (
             <TableRow key={item.id}>
               {Object.keys(item).map((key) => (
-                <ItemProperty key={key}>
-                  {"object" === typeof item[key] && (
-                    <Accordion items={[item[key]].flat()}>
-                      <DataTable data={[item[key]].flat()} />
-                    </Accordion>
-                  )}
-
-                  {"string" === typeof item[key] && item[key]}
-                </ItemProperty>
+                <PropertyItem
+                  key={key}
+                  item={item}
+                  itemKey={key}
+                ></PropertyItem>
               ))}
             </TableRow>
           );
