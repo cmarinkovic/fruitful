@@ -33,7 +33,7 @@ interface Values {
 }
 
 export default function HarvestForm() {
-  /* ------------------------------- Data { data, errorMessage, isLoading, payload, setPayload, makeRequest } ------------------------------- */
+  /* ------------------------------- Data  ------------------------------- */
   const [exampleState] = useContext(ExampleContext);
 
   const {
