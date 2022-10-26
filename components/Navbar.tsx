@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   const toggleHamburger = () => {
-    setIsHamburgerOpen(!isHamburgerOpen);
+    setIsHamburgerOpen(() => !isHamburgerOpen);
   };
 
   const links = [

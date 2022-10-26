@@ -16,8 +16,8 @@ export default function useAxios<DataType, Payload>(
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const makeRequest = (payload?: string) => {
-    setErrorMessage("");
-    setIsLoading(true);
+    setErrorMessage(() => "");
+    setIsLoading(() => true);
 
     axios
       .request<DataType>({
@@ -30,12 +30,12 @@ export default function useAxios<DataType, Payload>(
         data: payload,
       })
       .then((response) => {
-        setData(response.data);
+        setData(() => response.data);
       })
       .catch((error) => {
         error.response
-          ? setErrorMessage(error.response.data.message)
-          : setErrorMessage(error.message);
+          ? setErrorMessage(() => error.response.data.message)
+          : setErrorMessage(() => error.message);
       })
       .finally(() => setIsLoading(false));
   };

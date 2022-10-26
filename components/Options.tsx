@@ -42,7 +42,7 @@ export default function Options({
 
     switch (name) {
       case "growerId":
-        setOptionsData(
+        setOptionsData(() =>
           filterData(growersData.growers, ["id", "name", "lastName"])
         );
 
@@ -54,15 +54,17 @@ export default function Options({
 
         if (!grower) return;
 
-        setOptionsData(filterData(grower.farms, ["id", "name"]));
+        setOptionsData(() => filterData(grower.farms, ["id", "name"]));
         break;
       case "clientId":
-        setOptionsData(
+        setOptionsData(() =>
           filterData(clientsData.clients, ["id", "name", "lastName"])
         );
         break;
       case "commodityId":
-        setOptionsData(filterData(commoditiesData.commodities, ["id", "name"]));
+        setOptionsData(() =>
+          filterData(commoditiesData.commodities, ["id", "name"])
+        );
         break;
       case "varietyId":
         const commodity: Commodity | undefined =
@@ -72,7 +74,7 @@ export default function Options({
 
         if (!commodity) return;
 
-        setOptionsData(filterData(commodity.varieties, ["id", "name"]));
+        setOptionsData(() => filterData(commodity.varieties, ["id", "name"]));
         break;
     }
   }, [name, growerId, commodityId, growersData, clientsData, commoditiesData]);
