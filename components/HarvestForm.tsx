@@ -168,7 +168,10 @@ export default function HarvestForm() {
 
         {isPostLoading && <Spinner />}
 
-        {postResponse && <Alert alertType="info" message={postResponse} />}
+        {postResponse && postResponse.harvest && (
+          <Alert alertType="info" message="Harvest added successfully!" />
+        )}
+
         <Form>
           <label className={labelClasses} htmlFor="growerId">
             Grower ID
